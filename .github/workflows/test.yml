@@ -1,0 +1,20 @@
+name: Print name
+on: 
+  workflow_dispatch:
+    inputs:
+      NAME:
+        description: 'Name to print'     
+        required: true 
+        type: string
+
+jobs:
+  print-name:
+    name: Print name
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Print name
+      uses: ./
+      with:
+        NAME: ${{ inputs.NAME }}
+        
